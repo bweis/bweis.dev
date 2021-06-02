@@ -1,22 +1,18 @@
 const kebabCase = require(`lodash.kebabcase`)
 const themeConfig = require(`./theme-config`)
 
-const mdxResolverPassthrough = fieldName => async (
-  source,
-  args,
-  context,
-  info
-) => {
-  const type = info.schema.getType(`Mdx`)
-  const mdxNode = context.nodeModel.getNodeById({
-    id: source.parent,
-  })
-  const resolver = type.getFields()[fieldName].resolve
-  const result = await resolver(mdxNode, args, context, {
-    fieldName,
-  })
-  return result
-}
+const mdxResolverPassthrough =
+  fieldName => async (source, args, context, info) => {
+    const type = info.schema.getType(`Mdx`)
+    const mdxNode = context.nodeModel.getNodeById({
+      id: source.parent,
+    })
+    const resolver = type.getFields()[fieldName].resolve
+    const result = await resolver(mdxNode, args, context, {
+      fieldName,
+    })
+    return result
+  }
 
 const slugify = source => {
   const slug = source.slug ? source.slug : kebabCase(source.title)
@@ -252,18 +248,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     },
   })
 
-  // createPage({
-  //   path: `/${basePath}/${blogPath}`.replace(/\/\/+/g, `/`),
-  //   component: blogTemplate,
-  //   context: {
-  //     formatString,
-  //   },
-  // })
+  createPage({
+    path: `/${basePath}/${blogPath}`.replace(/\/\/+/g, `/`),
+    component: blogTemplate,
+    context: {
+      formatString,
+    },
+  })
 
-  // createPage({
-  //   path: `/${basePath}/${tagsPath}`.replace(/\/\/+/g, `/`),
-  //   component: tagsTemplate,
-  // })
+  createPage({
+    path: `/${basePath}/${tagsPath}`.replace(/\/\/+/g, `/`),
+    component: tagsTemplate,
+  })
 
   const result = await graphql(`
     query {

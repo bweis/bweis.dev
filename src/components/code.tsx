@@ -4,7 +4,7 @@ import Highlight, { defaultProps } from "prism-react-renderer"
 import loadable from "@loadable/component"
 import theme from "prism-react-renderer/themes/nightOwl"
 
-import Copy from "./copy"
+import Copy from "./Copy"
 import useThemeConfig from "../hooks/use-theme-config"
 import { Language } from "../types"
 

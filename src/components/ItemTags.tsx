@@ -1,8 +1,7 @@
 import React from "react"
-import { Link as TLink } from "theme-ui"
-import { Link } from "gatsby"
 import useThemeConfig from "../hooks/use-theme-config"
 import replaceSlashes from "../utils/replaceSlashes"
+import Link from "./Link"
 
 type TagsProps = {
   tags: {
@@ -19,12 +18,9 @@ const ItemTags = ({ tags }: TagsProps) => {
       {tags.map((tag, i) => (
         <React.Fragment key={tag.slug}>
           {!!i && `, `}
-          <TLink
-            as={Link}
-            to={replaceSlashes(`/${basePath}/${tagsPath}/${tag.slug}`)}
-          >
+          <Link to={replaceSlashes(`/${basePath}/${tagsPath}/${tag.slug}`)}>
             {tag.name}
-          </TLink>
+          </Link>{" "}
         </React.Fragment>
       ))}
     </React.Fragment>

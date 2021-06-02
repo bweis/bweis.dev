@@ -1,5 +1,5 @@
 import { graphql } from "gatsby"
-import PageComponent from "../components/page"
+import PageComponent from "../components/Page"
 
 export default PageComponent
 

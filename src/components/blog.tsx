@@ -1,12 +1,13 @@
 /** @jsx jsx */
-import { jsx, Heading, Link as TLink } from "theme-ui"
-import { graphql, Link } from "gatsby"
+
+import { jsx, Heading } from "theme-ui"
+import Link from "./Link"
 import { Flex } from "@theme-ui/components"
-import Layout from "./layout"
-import Listing from "./listing"
+import Layout from "./Layout"
+import Listing from "./Listing"
 import useThemeConfig from "../hooks/use-theme-config"
 import replaceSlashes from "../utils/replaceSlashes"
-import SEO from "./seo"
+import SEO from "./SEO"
 
 type PostsProps = {
   posts: {
@@ -38,13 +39,12 @@ const Blog = ({ posts }: PostsProps) => {
         }}
       >
         <Heading variant="styles.h2">Blog</Heading>
-        <TLink
-          as={Link}
+        <Link
           sx={{ variant: `links.secondary` }}
           to={replaceSlashes(`/${basePath}/${tagsPath}`)}
         >
           View all tags
-        </TLink>
+        </Link>
       </Flex>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>

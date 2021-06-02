@@ -2,9 +2,9 @@
 import { jsx, Heading } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
-import Layout from "./layout"
-import ItemTags from "./item-tags"
-import SEO from "./seo"
+import Layout from "./Layout"
+import ItemTags from "./ItemTags"
+import SEO from "./SEO"
 
 type PostProps = {
   data: {

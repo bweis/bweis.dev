@@ -2,10 +2,10 @@
 import { jsx, useColorMode } from "theme-ui"
 import { Flex } from "@theme-ui/components"
 import useThemeConfig from "../hooks/use-theme-config"
-import ColorModeToggle from "./colormode-toggle"
-import Navigation from "./navigation"
-import HeaderTitle from "./header-title"
-import HeaderExternalLinks from "./header-external-links"
+import ColorModeToggle from "./ColorModeToggle"
+import Navigation from "./Navigation"
+import HeaderTitle from "./HeaderTitle"
+import HeaderExternalLinks from "./HeaderExternalLinks"
 
 const Header = () => {
   const { navigation: nav } = useThemeConfig()

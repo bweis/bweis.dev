@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import React from "react"
 import { jsx, Link as TLink } from "theme-ui"
-import { Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
+import Link from "./Link"
 import useThemeConfig from "../hooks/use-theme-config"
 import replaceSlashes from "../utils/replaceSlashes"
 
@@ -26,14 +27,13 @@ const Navigation = ({ nav }: NavigationProps) => {
           }}
         >
           {nav.map(item => (
-            <TLink
+            <Link
               key={item.slug}
-              as={Link}
               activeClassName="active"
               to={replaceSlashes(`/${basePath}/${item.slug}`)}
             >
               {item.title}
-            </TLink>
+            </Link>
           ))}
         </nav>
       )}

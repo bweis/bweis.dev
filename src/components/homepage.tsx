@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Text, Box } from "theme-ui"
-import Layout from "./layout"
+import Layout from "./Layout"
 import useThemeConfig from "../hooks/use-theme-config"
 // @ts-ignore
 import Hero from "../texts/hero"

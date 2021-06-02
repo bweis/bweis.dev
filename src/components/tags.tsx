@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { jsx, Link as TLink, Heading } from "theme-ui"
+import { jsx, Heading } from "theme-ui"
 import { Box, Flex } from "@theme-ui/components"
 import kebabCase from "lodash.kebabcase"
-import { Link } from "gatsby"
-import Layout from "./layout"
+import Layout from "./Layout"
 import useThemeConfig from "../hooks/use-theme-config"
-import SEO from "./seo"
+import SEO from "./SEO"
 import replaceSlashes from "../utils/replaceSlashes"
+import Link from "./Link"
 
 type PostsProps = {
   list: {
@@ -29,8 +29,7 @@ const Tags = ({ list }: PostsProps) => {
             mb={[1, 1, 2]}
             sx={{ alignItems: `center` }}
           >
-            <TLink
-              as={Link}
+            <Link
               sx={{ variant: `links.listItem`, mr: 2 }}
               to={replaceSlashes(
                 `/${basePath}/${tagsPath}/${kebabCase(listItem.fieldValue)}`
@@ -38,7 +37,7 @@ const Tags = ({ list }: PostsProps) => {
             >
               {listItem.fieldValue}{" "}
               <span sx={{ color: `secondary` }}>({listItem.totalCount})</span>
-            </TLink>
+            </Link>
           </Flex>
         ))}
       </Box>

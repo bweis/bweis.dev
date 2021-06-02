@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import React from "react"
-import { jsx, Link as TLink } from "theme-ui"
+import { jsx } from "theme-ui"
 import { Box } from "@theme-ui/components"
-import { Link } from "gatsby"
-import ItemTags from "./item-tags"
+import ItemTags from "./ItemTags"
+import Link from "./Link"
 
 type BlogListItemProps = {
   post: {
@@ -23,9 +23,9 @@ type BlogListItemProps = {
 
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
   <Box mb={4}>
-    <TLink as={Link} to={post.slug} sx={{ fontSize: [1, 2, 3], color: `text` }}>
+    <Link to={post.slug} sx={{ fontSize: [1, 2, 3], color: `text` }}>
       {post.title}
-    </TLink>
+    </Link>
     <p
       sx={{
         color: `secondary`,

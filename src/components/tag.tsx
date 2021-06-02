@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { jsx, Heading, Link as TLink } from "theme-ui"
+import { jsx, Heading } from "theme-ui"
 import { Flex } from "@theme-ui/components"
-import { Link } from "gatsby"
-import Layout from "./layout"
+import Layout from "./Layout"
 import useThemeConfig from "../hooks/use-theme-config"
-import Listing from "./listing"
+import Listing from "./Listing"
 import replaceSlashes from "../utils/replaceSlashes"
-import SEO from "./seo"
+import SEO from "./SEO"
+import Link from "./Link"
 
 type TagProps = {
   posts: {
@@ -43,13 +43,12 @@ const Tag = ({ posts, pageContext }: TagProps) => {
         }}
       >
         <Heading variant="styles.h2">{pageContext.name}</Heading>
-        <TLink
-          as={Link}
+        <Link
           sx={{ variant: `links.secondary` }}
           to={replaceSlashes(`/${basePath}/${tagsPath}`)}
         >
           View all tags
-        </TLink>
+        </Link>
       </Flex>
       <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>
